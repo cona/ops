@@ -13,4 +13,7 @@ def nginx():
     sudo('yum -y install --enablerepo=nginx nginx')
     sudo('systemctl enable nginx')
     sudo('systemctl start nginx')
-
+def composer():
+    sudo('yum -y install php')
+    run('curl -sS https://getcomposer.org/installer | php')
+    run('php composer.phar')
