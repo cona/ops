@@ -13,6 +13,8 @@ def nginx():
     sudo('yum -y install --enablerepo=nginx nginx')
     sudo('systemctl enable nginx')
     sudo('systemctl start nginx')
+    sudo('firewall-cmd --permanent --zone=public --add-service=http')
+    sudo('firewall-cmd --reload')
 def composer():
     sudo('yum -y install php')
     run('curl -sS https://getcomposer.org/installer | php')
